@@ -4,7 +4,7 @@ import Footer from "../components/shared/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="bg-background1">
+    <div className="bg-background1 font-Roboto">
       <Navbar></Navbar>
       <Outlet></Outlet>
       <Footer></Footer>

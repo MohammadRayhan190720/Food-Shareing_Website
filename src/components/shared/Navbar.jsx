@@ -1,6 +1,8 @@
 
 import { Link, NavLink } from "react-router-dom";
 import Logo from '../../assets/images/logo.webp'
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
   
@@ -93,17 +95,23 @@ const Navbar = () => {
             />
             <button
               onClick={handleSignOut}
-              className="bg-[#ff7043] px-3 py-1 md:px-5 md:py-3 rounded-lg flex"
+              className="bg-secondary1 px-3 py-1 md:px-5 md:py-3 rounded-lg flex"
             >
               Sign Out
             </button>
           </div>
         ) : (
           <div className="flex gap-5 items-center">
-            <Link className="bg-[#ff7043] px-5 py-3 rounded-lg" to="/signup">
+            <Link
+              className="bg-secondary1 px-5 py-3 rounded-lg hover:bg-[#F0836D]"
+              to="/signup"
+            >
               Sign Up
             </Link>
-            <Link className="bg-[#0097a7] px-5 py-3 rounded-lg" to="/signin">
+            <Link
+              className="bg-secondary2 px-5 py-3 rounded-lg hover:bg-[#8BAFBF]"
+              to="/signin"
+            >
               Sign In
             </Link>
           </div>
