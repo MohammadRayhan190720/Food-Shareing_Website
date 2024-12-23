@@ -5,12 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const AddFood = () => {
-  // Mock user data (you can pass the real user object with image, name, and email)
-  // const loggedInUser = user || {
-  //   image: "https://via.placeholder.com/100", // Replace with actual logged-in user's image
-  //   name: "John Doe",
-  //   email: "johndoe@example.com",
-  // };
+ 
 
   const {user} = useContext(AuthContext)
   const email = user?.email;
@@ -36,7 +31,9 @@ const AddFood = () => {
   const onSubmit = (data) => {
     // Add "available" status by default
     data.foodStatus = "available";
-
+    const foodQuantityNumber = parseInt(data.foodQuantity)
+    data.foodQuantity = foodQuantityNumber;
+    console.log(data)
     axios.post("http://localhost:5000/add-foods",data)
     .then(res =>{
       if(res.data.insertedId){
