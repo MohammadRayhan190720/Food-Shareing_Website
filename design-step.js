@@ -102,3 +102,19 @@
 // - **Fonts:** Pair **Roboto (Body)** with **Poppins (Headings)** for balance. Add a creative touch with **Pacifico** or **Playfair Display** for branding.  
 
 // Let me know if you’d like a visual prototype or specific CSS styling tips!
+
+
+// Here are two additional features you can include on your "Food For All" homepage to make it more engaging and user-friendly:
+
+// ### 1. **Success Stories or Testimonials Section**
+//    - Add a section showcasing **real-life success stories** or **testimonials** from people who benefited from the food-sharing platform. 
+//    - Include inspiring images, short descriptions, and quotes like:
+//      > "Thanks to Food For All, I never go to bed hungry. The community here is amazing!" 
+//    - You can also incorporate a call-to-action like "Share Your Story" to encourage engagement.
+
+// ### 2. **Interactive Food Donation Map**
+//    - Integrate an **interactive map** where users can see nearby donation spots or food-sharing events.
+//    - Use pins to highlight locations and add popups with details like availability, hours, and contact info.
+//    - This can create a seamless connection between users looking to share or receive food.
+
+// These features not only make the site visually appealing but also enhance its functionality and create a sense of community. Let me know if you'd like help implementing them!

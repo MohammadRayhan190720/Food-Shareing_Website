@@ -8,47 +8,55 @@ import ManageMyFoods from "../pages/ManageMyFoods";
 import MyFoodRequest from "../pages/MyFoodRequest";
 import SignIn from "../pages/SignIn";
 import SignUp from "../pages/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    children:[
+    children: [
       {
         path: "/",
-        element: <Home></Home>
-
+        element: <Home></Home>,
       },
       {
         path: "/avaiableFoods",
-        element: <AvailableFoods></AvailableFoods>
-
+        element: <AvailableFoods></AvailableFoods>,
       },
       {
         path: "/addFood",
-        element: <AddFood></AddFood>
-
+        element: (
+          <PrivateRoute>
+            <AddFood></AddFood>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/manageMyFoods",
-        element: <ManageMyFoods></ManageMyFoods>
-
+        element: (
+          <PrivateRoute>
+            <ManageMyFoods></ManageMyFoods>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myFoodRequest",
-        element: <MyFoodRequest></MyFoodRequest>
-
+        element: (
+          <PrivateRoute>
+            <MyFoodRequest></MyFoodRequest>
+          </PrivateRoute>
+        ),
       },
-    ]
+    ],
   },
   {
-    path: '/signin',
-    element:<SignIn></SignIn>
+    path: "/signin",
+    element: <SignIn></SignIn>,
   },
   {
-    path: '/signup',
-    element: <SignUp></SignUp>
-  }
+    path: "/signup",
+    element: <SignUp></SignUp>,
+  },
 ]);
 
 export default router;
