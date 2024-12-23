@@ -118,3 +118,97 @@
 //    - This can create a seamless connection between users looking to share or receive food.
 
 // These features not only make the site visually appealing but also enhance its functionality and create a sense of community. Let me know if you'd like help implementing them!
+
+/**
+ * Here's how you can create an **Interactive Food Donation Map** component for your food-sharing website using Tailwind CSS, DaisyUI, and React. We will use the **react-leaflet** library to integrate the map and pins.
+
+### Steps:
+1. Install the necessary dependencies:
+   ```bash
+   npm install react-leaflet leaflet
+   ```
+
+2. Create the component:
+
+```jsx
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "leaflet/dist/leaflet.css";
+import L from "leaflet";
+
+// Custom marker icon
+const markerIcon = new L.Icon({
+  iconUrl: "https://cdn-icons-png.flaticon.com/512/684/684908.png", // Replace with your custom icon URL
+  iconSize: [30, 30],
+});
+
+const donationSpots = [
+  {
+    id: 1,
+    name: "Community Center A",
+    lat: 40.7128,
+    lng: -74.006,
+    details: "Open 9 AM - 5 PM, Contact: 123-456-7890",
+  },
+  {
+    id: 2,
+    name: "Food Bank B",
+    lat: 40.73061,
+    lng: -73.935242,
+    details: "Open 10 AM - 6 PM, Contact: 987-654-3210",
+  },
+];
+
+const FoodDonationMap = () => {
+  return (
+    <div className="p-4 bg-base-100 rounded-lg shadow-lg">
+      <h2 className="text-2xl font-bold text-center mb-4">
+        Interactive Food Donation Map
+      </h2>
+      <div className="h-96 rounded-lg overflow-hidden">
+        <MapContainer
+          center={[40.7128, -74.006]} // Initial map center
+          zoom={13}
+          className="h-full w-full"
+        >
+          <TileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
+          {donationSpots.map((spot) => (
+            <Marker
+              key={spot.id}
+              position={[spot.lat, spot.lng]}
+              icon={markerIcon}
+            >
+              <Popup>
+                <h3 className="font-semibold">{spot.name}</h3>
+                <p>{spot.details}</p>
+              </Popup>
+            </Marker>
+          ))}
+        </MapContainer>
+      </div>
+    </div>
+  );
+};
+
+export default FoodDonationMap;
+```
+
+### Explanation:
+1. **Map Container**: `MapContainer` is used to render the map.
+2. **Tile Layer**: `TileLayer` fetches the map tiles from OpenStreetMap.
+3. **Marker and Popup**: Each donation spot is represented with a `Marker`. When clicked, a `Popup` shows the details.
+4. **Styling**: Tailwind and DaisyUI ensure the component looks modern and responsive.
+
+### Add the Component:
+Include the `FoodDonationMap` component in your home page or desired section:
+```jsx
+<FoodDonationMap />
+```
+
+### Notes:
+- Replace the `donationSpots` array with dynamic data from your backend if needed.
+- Customize the map center and zoom level based on your website's requirements.
+ */

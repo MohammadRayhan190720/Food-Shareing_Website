@@ -1,5 +1,5 @@
 import Banner from "../components/Banner";
-import HighlightKeyMetrics from "../components/HighlightKeyMetrics";
+import FoodDonationMap from "../components/FoodDonationMap";
 import InspireStory from "../components/InspireStory";
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <InspireStory></InspireStory>
+      <FoodDonationMap></FoodDonationMap>
     </div>
   );
 };
