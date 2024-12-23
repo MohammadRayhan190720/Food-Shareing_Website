@@ -30,56 +30,56 @@ const Banner = () => {
           <img
             src={slider1}
             alt="Movie 1"
-            className="w-full h-screen  rounded-lg"
+            className="w-full h-96  rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider2}
             alt="Movie 2"
-            className="w-full h-screen rounded-lg"
+            className="w-full h-96 rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider3}
             alt="Movie 3"
-            className="w-full  h-screen rounded-lg"
+            className="w-full  h-96 rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider4}
             alt="Movie 3"
-            className="w-full h-screen rounded-lg"
+            className="w-full h-96 rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider5}
             alt="Movie 3"
-            className="w-full h-screen  rounded-lg"
+            className="w-full h-96  rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider6}
             alt="Movie 3"
-            className="w-full h-screen  rounded-lg"
+            className="w-full h-96  rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider7}
             alt="Movie 3"
-            className="w-full h-screen  rounded-lg"
+            className="w-full h-96  rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider8}
-            alt="Movie 3"
-            className="w-full h-screen  rounded-lg"
+            alt="Movie 8"
+            className="w-full h-96  rounded-lg"
           />
         </SwiperSlide>
       </Swiper>

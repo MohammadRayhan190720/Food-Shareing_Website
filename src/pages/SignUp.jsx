@@ -3,6 +3,7 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
+import welcome from '../assets/images/welcome.jpg';
 
 const SignUp = () => {
   const { creatNewUser, signInWithGoogle, updateUserProfile, setUser } =
@@ -37,6 +38,29 @@ const SignUp = () => {
     creatNewUser(email, password)
       .then((result) => {
         setUser(result.user);
+Swal.fire({
+  icon: "success",
+  title: "<h2 style='color: #4caf50;'>Welcome to Food For All!</h2>",
+  html: `
+    <p style="color: #555; font-size: 16px;">
+      Your signup was <strong style="color: #4caf50;">successful</strong>! 
+      We're thrilled to have you on board.
+    </p>
+    <p style="color: #888; font-size: 14px;">
+      Explore our platform and start sharing or receiving food today!
+    </p>
+  `,
+  background: "#f9f9f9",
+  confirmButtonText: "Let's Get Started!",
+  confirmButtonColor: "#4caf50",
+  showClass: {
+    popup: "animate__animated animate__fadeInDown",
+  },
+  hideClass: {
+    popup: "animate__animated animate__fadeOutUp",
+  },
+});
+
         navigate("/");
 
         // update profile
@@ -73,6 +97,11 @@ const SignUp = () => {
     signInWithGoogle()
       .then((result) => {
         setUser(result.user);
+                Swal.fire({
+                  icon: "sucess",
+                  title: 'Successfull!',
+                  text: "Welcome At Food For All",
+                });
         navigate("/");
       })
       .catch((error) => {
