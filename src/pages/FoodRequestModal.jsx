@@ -1,28 +1,75 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../provider/AuthProvider";
+import moment from "moment";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-const FoodRequestModal = () => {
+const FoodRequestModal = ({foodData}) => {
+    const {
+      additionalNotes,
+      donatorEmail,
+      donatorImage,
+      donatorName,
+      expiredDateTime,
+      foodImage,
+      foodName,
+      foodQuantity,
+      foodStatus,
+      pickupLocation,
+      _id,
+    } = foodData;
+    console.log(foodData)
 
-  // const [foods,setFoods] = useState({})
 
-  // useEffect(() =>{
-  //   axios.get('')
-  // },[])
+    const {user} = useContext(AuthContext)
+    const email = user?.email;
 
 
-  const { register, handleSubmit } = useForm();
+    const expDate = moment(expiredDateTime).format("YYYY-MM-DD");
 
-  const onSubmit = (data,id) => {
+
+
+
+  const { register, handleSubmit } = useForm({
+    defaultValues: {
+      foodName: foodName,
+      foodImage: foodImage,
+      donatorEmail: email,
+      foodId: _id,
+      donatorEmail: donatorEmail,
+      donatorName: donatorName,
+      expireDate: expDate,
+      userEmail: email,
+      pickupLocation: pickupLocation,
+      additionalNotes:additionalNotes,
+    },
+  });
+
+  const onSubmit = (data) => {
     console.log(data);
-    console.log(id)
-    // Handle form submission here (e.g., send the data to your backend)
+    data.foodStatus = "requested";
+    
+    axios.patch(`http://localhost:5000/foods/${_id}`,data)
+    .then(res => {
+      if (res.data.modifiedCount > 0) {
+        Swal.fire({
+          title: "Successfull",
+          text: "Food Request  successfully Submitted",
+          icon: "success",
+        });
+      }
+    })
+
   };
 
   return (
     <div>
       <dialog id="my_modal_4" className="modal">
         <div className="modal-box w-11/12 max-w-5xl">
-          <h3 className="font-bold text-3xl lg:text-4xl font-Playfire text-center">Food Request Form</h3>
+          <h3 className="font-bold text-3xl lg:text-4xl font-Playfire text-center">
+            Food Request Form
+          </h3>
           <p className="py-4">Fill in the details below:</p>
 
           {/* Form */}
@@ -35,6 +82,7 @@ const FoodRequestModal = () => {
               <label className="block font-medium mb-2">Food Name</label>
               <input
                 type="text"
+                readOnly
                 {...register("foodName")}
                 className="input input-bordered w-full"
               />
@@ -45,6 +93,7 @@ const FoodRequestModal = () => {
               <label className="block font-medium mb-2">Food Image</label>
               <input
                 type="text"
+                readOnly
                 {...register("foodImage")}
                 className="input input-bordered w-full"
               />
@@ -55,6 +104,7 @@ const FoodRequestModal = () => {
               <label className="block font-medium mb-2">Food ID</label>
               <input
                 type="text"
+                readOnly
                 {...register("foodId")}
                 className="input input-bordered w-full"
               />
@@ -67,6 +117,7 @@ const FoodRequestModal = () => {
               </label>
               <input
                 type="email"
+                readOnly
                 {...register("donatorEmail")}
                 className="input input-bordered w-full"
               />
@@ -79,6 +130,7 @@ const FoodRequestModal = () => {
               </label>
               <input
                 type="text"
+                readOnly
                 {...register("donatorName")}
                 className="input input-bordered w-full"
               />
@@ -89,6 +141,7 @@ const FoodRequestModal = () => {
               <label className="block font-medium mb-2">User Email</label>
               <input
                 type="email"
+                readOnly
                 {...register("userEmail")}
                 className="input input-bordered w-full"
               />
@@ -98,8 +151,10 @@ const FoodRequestModal = () => {
             <div>
               <label className="block font-medium mb-2">Request Date</label>
               <input
-                type="date"
+                type="datetime-local"
+                readOnly
                 {...register("requestDate")}
+                defaultValue={new Date().toISOString().slice(0, 16)}
                 className="input input-bordered w-full"
               />
             </div>
@@ -109,6 +164,7 @@ const FoodRequestModal = () => {
               <label className="block font-medium mb-2">Pickup Location</label>
               <input
                 type="text"
+                readOnly
                 {...register("pickupLocation")}
                 className="input input-bordered w-full"
               />
@@ -119,6 +175,7 @@ const FoodRequestModal = () => {
               <label className="block font-medium mb-2">Expire Date</label>
               <input
                 type="date"
+                readOnly
                 {...register("expireDate")}
                 className="input input-bordered w-full"
               />

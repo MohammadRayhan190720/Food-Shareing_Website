@@ -18,9 +18,11 @@ const AvailableFoods = () => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {foodData.map((food) => (
-          <AvailableFoodCard food={food} key={food._id}></AvailableFoodCard>
-        ))}
+        {foodData
+          .filter((food) => food.foodStatus === "available")
+          .map((food) => (
+            <AvailableFoodCard food={food} key={food._id}></AvailableFoodCard>
+          ))}
       </div>
     </div>
   );

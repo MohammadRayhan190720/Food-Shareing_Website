@@ -19,7 +19,6 @@ const FoodDetails = () => {
   // console.log(foodData)
 
   const {
-    _id,
     additionalNotes,
     donatorEmail,
     donatorImage,
@@ -81,7 +80,7 @@ const FoodDetails = () => {
           </div>
           <div className="flex items-center justify-center mt-6">
             <button
-              onClick={(_id) => document.getElementById("my_modal_4").showModal(_id)}
+              onClick={() => document.getElementById("my_modal_4").showModal()}
               className="px-5 py-3 bg-primary1 rounded-md text-white flex items-center gap-2 hover:bg-secondary1"
             >
               <FaHandsHelping />
@@ -90,7 +89,9 @@ const FoodDetails = () => {
           </div>
         </div>
       </div>
-      <FoodRequestModal></FoodRequestModal>
+      <FoodRequestModal foodData={foodData}>
+        
+      </FoodRequestModal>
     </div>
   );
 };
