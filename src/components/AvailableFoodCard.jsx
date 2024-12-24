@@ -1,8 +1,9 @@
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const AvailableFoodCard = ({food}) => {
   console.log(food)
-  const { foodImage, foodName, expiredDateTime, additionalNotes } = food;
+  const { foodImage, foodName, expiredDateTime, additionalNotes,_id } = food;
   return (
     <div className="card bg-base-100  shadow-xl mt-6 lg:mt-8">
       <figure>
@@ -20,7 +21,7 @@ const AvailableFoodCard = ({food}) => {
         </div>
 
         <div className="card-actions justify-start">
-          <button className="btn bg-secondary1 text-white">View Details</button>
+          <Link to={`/foodDetails/${_id}`} className="btn bg-secondary1 text-white">View Details</Link>
         </div>
       </div>
     </div>
