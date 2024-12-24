@@ -16,7 +16,7 @@ const FeaturedFoods = () => {
 
   },[])
 
-  console.log(foods)
+  // console.log(foods)
 
   return (
     <div className="mt-10 lg:mt-16 max-w-7xl mx-auto">

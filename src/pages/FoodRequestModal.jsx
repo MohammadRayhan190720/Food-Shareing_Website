@@ -38,14 +38,13 @@ const FoodRequestModal = ({foodData}) => {
     defaultValues: {
       foodName: foodName,
       foodImage: foodImage,
-      donatorEmail: email,
       foodId: _id,
       donatorEmail: donatorEmail,
       donatorName: donatorName,
       expireDate: expDate,
       userEmail: email,
       pickupLocation: pickupLocation,
-      additionalNotes:additionalNotes,
+      additionalNotes: additionalNotes,
     },
   });
 

@@ -3,7 +3,7 @@ import { GiShieldImpact } from "react-icons/gi";
 
 
 const InspiresStoryCard = ({ singleStory }) => {
-  console.log(singleStory);
+  // console.log(singleStory);
   const { dateShared, image, impactLevel, name, place, shortDescription } =
     singleStory;
   return (

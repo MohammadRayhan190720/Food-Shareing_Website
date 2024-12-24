@@ -10,13 +10,10 @@ import FoodRequestModal from "./FoodRequestModal";
 
 
 
-
-
-
 const FoodDetails = () => {
 
   const foodData = useLoaderData()
-  // console.log(foodData)
+  console.log(foodData)
 
   const {
     additionalNotes,
@@ -30,6 +27,7 @@ const FoodDetails = () => {
     foodStatus,
     pickupLocation,
   } = foodData;
+
   return (
     <div className="flex flex-col lg:flex-row gap-8 card shadow-lg max-w-7xl mx-auto mt-10 lg:mt-14 p-6 items-center justify-center">
       <div className="w-full md:w-1/2">

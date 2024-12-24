@@ -1,13 +1,18 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
+import { MdOutlineProductionQuantityLimits } from "react-icons/md";
+import moment from "moment";
+
 
 const MyFoodRequest = () => {
   const [myFoodReq, setMyFoodReq] = useState([]);
 
   console.log(myFoodReq)
 
-  const {user} = useContext(AuthContext)
+  const {user} = useContext(AuthContext);
+
+
 
   useEffect(() => {
 
@@ -21,12 +26,12 @@ const MyFoodRequest = () => {
 
   const fetchAllFoods = async () => {
     const { data } = await axios.get(
-      `http://localhost:5000/foods/${user?.email}`
+      `http://localhost:5000/userFood/${user?.email}`
     );
     setMyFoodReq(data);
   };
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto max-w-md md:max-w-xl lg:max-w-5xl mx-auto mt-5 lg:mt-8">
       <table className="table">
         {/* head */}
         <thead>
@@ -34,14 +39,15 @@ const MyFoodRequest = () => {
             <th>
               <label>Serial</label>
             </th>
-            <th>Donator</th>
-            <th> Name</th>
-            <th>Favorite Color</th>
+            <th>Donator Info</th>
+            <th>Food Info </th>
+            <th> Expire Date</th>
+            <th>Request Date</th>
             <th></th>
           </tr>
         </thead>
         <tbody>
-          {myFoodReq.map((food, index) => (
+          {myFoodReq?.map((food, index) => (
             <tr key={index}>
               <th>{index + 1}</th>
               <td>
@@ -60,13 +66,24 @@ const MyFoodRequest = () => {
                 </div>
               </td>
               <td>
-                Zemlak, Daniel and Leannon
-                <br />
-                <span className="badge badge-ghost badge-sm">
-                  Desktop Support Technician
-                </span>
+                <div className="flex items-center gap-3">
+                  <div className="avatar">
+                    <div className="mask mask-squircle h-12 w-12">
+                      <img src={food?.foodImage} alt={food.foodName} />
+                    </div>
+                  </div>
+                  <div>
+                    <div className="font-bold">{food?.foodName}</div>
+                    <div className="text-sm opacity-50 flex items-center gap-1">
+                      <MdOutlineProductionQuantityLimits />
+
+                      {food?.foodQuantity}
+                    </div>
+                  </div>
+                </div>
               </td>
-              <td>Purple</td>
+              <td>{moment(food?.expiredDateTime).format("L")}</td>
+              <td>{moment(food?.requestDate).format("L")}</td>
               <th>
                 <button className="btn btn-ghost btn-xs">details</button>
               </th>
