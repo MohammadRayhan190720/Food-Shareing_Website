@@ -4,8 +4,11 @@ import { AuthContext } from "../provider/AuthProvider";
 import moment from "moment";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const FoodRequestModal = ({foodData}) => {
+
+  const navigate = useNavigate()
     const {
       additionalNotes,
       donatorEmail,
@@ -50,7 +53,7 @@ const FoodRequestModal = ({foodData}) => {
     console.log(data);
     data.foodStatus = "requested";
     
-    axios.patch(`http://localhost:5000/foods/${_id}`,data)
+    axios.put(`http://localhost:5000/foods/${_id}`,data)
     .then(res => {
       if (res.data.modifiedCount > 0) {
         Swal.fire({
@@ -58,6 +61,7 @@ const FoodRequestModal = ({foodData}) => {
           text: "Food Request  successfully Submitted",
           icon: "success",
         });
+        navigate("/myFoodRequest");
       }
     })
 
