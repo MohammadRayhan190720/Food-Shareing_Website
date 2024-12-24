@@ -43,7 +43,6 @@ const MyFoodRequest = () => {
             <th>Food Info </th>
             <th> Expire Date</th>
             <th>Request Date</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -84,9 +83,6 @@ const MyFoodRequest = () => {
               </td>
               <td>{moment(food?.expiredDateTime).format("L")}</td>
               <td>{moment(food?.requestDate).format("L")}</td>
-              <th>
-                <button className="btn btn-ghost btn-xs">details</button>
-              </th>
             </tr>
           ))}
         </tbody>

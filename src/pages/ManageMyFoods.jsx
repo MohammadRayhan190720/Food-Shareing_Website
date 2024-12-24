@@ -48,6 +48,9 @@ const ManageMyFoods = () => {
               icon: "success",
             });
           }
+
+          const remaining = myAddedFood.find(food => food._id !== _id);
+          setMyAddedFood(remaining)
         });
       }
     });
