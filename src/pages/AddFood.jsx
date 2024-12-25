@@ -52,7 +52,7 @@ const AddFood = () => {
 
   return (
     <div className="p-6 max-w-7xl mx-auto font-Roboto bg-white rounded shadow-lg">
-      <h2 className="text-3xl lg:text-4xl font-Popins font-semibold my-6 lg:my-8 text-center">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-Playfire font-semibold my-6 lg:my-8 text-center">
         Add Food For Donation
       </h2>
       <form
@@ -89,7 +89,7 @@ const AddFood = () => {
 
         {/* Food Quantity */}
         <div>
-          <label className="block font-medium mb-1">Food Quantity</label>
+          <label className="block font-medium mb-1">Food Quantity (Kg) </label>
           <input
             type="number"
             {...register("foodQuantity", {

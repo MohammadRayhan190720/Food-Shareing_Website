@@ -70,7 +70,7 @@ const Navbar = () => {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-200 text-black rounded-md font-semibold space-y-8 z-50 mt-5 w-40 p-2 shadow border"
+            className="menu menu-sm dropdown-content bg-base-200 text-black rounded-md font-semibold space-y-2 z-50 mt-5 w-40 p-2 shadow border"
           >
             {links}
           </ul>
@@ -101,15 +101,15 @@ const Navbar = () => {
             </button>
           </div>
         ) : (
-          <div className="flex gap-5 items-center">
+          <div className="flex gap-5 md:gap-3 items-center">
             <Link
-              className="bg-secondary1 px-5 py-3 rounded-lg hover:bg-[#F0836D]"
+              className="bg-secondary1 px-3 py-1 md:px-4 md:py-2 xl:px-5 xl:py-3 rounded-lg hover:bg-[#F0836D]"
               to="/signup"
             >
               Sign Up
             </Link>
             <Link
-              className="bg-secondary2 px-5 py-3 rounded-lg hover:bg-[#8BAFBF]"
+              className="bg-secondary2 px-3 py-1 md:px-4 md:py-2 xl:px-5 xl:py-3 rounded-lg hover:bg-[#8BAFBF]"
               to="/signin"
             >
               Sign In

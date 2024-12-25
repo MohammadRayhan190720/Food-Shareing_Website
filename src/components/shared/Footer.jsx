@@ -6,8 +6,8 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-gradient-to-r from-green-500 via-green-300 to-yellow-400 text-white  ">
-      <footer className="footer   px-10 py-14 ">
+    <div className="bg-gradient-to-r from-green-500 via-green-300 to-yellow-400 my-5 text-white  ">
+      <footer className="footer px-10 py-14 ">
         <aside>
           <img className="w-20 h-20 rounded-full" src={Logo} alt="logo" />
 

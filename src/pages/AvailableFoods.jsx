@@ -35,9 +35,9 @@ const AvailableFoods = () => {
 
 
   return (
-    <div className="mt-10 lg:mt-16 max-w-7xl mx-auto">
+    <div className="mt-10 lg:mt-16 max-w-7xl mx-auto px-5">
       <div className="text-center space-y-4 ">
-        <h3 className="font-Popins text-3xl lg:text-4xl font-semibold">
+        <h3 className="font-Playfire text-3xl md:text-4xl lg:text-5xl font-semibold">
           Available Food for Donation
         </h3>
         <p className="text-center space-y-4">
@@ -45,7 +45,7 @@ const AvailableFoods = () => {
           need by selecting food that is ready for pickup and contribute to
           making a difference.
         </p>
-        <div className="flex items-center justify-evenly ">
+        <div className="flex flex-col md:flex-row items-center space-y-3 md:space-y-0 md:justify-evenly ">
           <button onClick={handleSort} className="btn border border-secondary1">
             Sort By Expire Date
           </button>

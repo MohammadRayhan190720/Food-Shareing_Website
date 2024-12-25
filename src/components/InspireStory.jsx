@@ -27,7 +27,7 @@ const InspireStory = () => {
           kindness knows no bounds.
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 px-5">
         {story.map((singleStory) => (
           <InspiresStoryCard
             key={singleStory._id}
