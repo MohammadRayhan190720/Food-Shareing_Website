@@ -6,8 +6,8 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div className="bg-[#F8F8F8] mt-10 lg:mt-16  ">
-      <footer className="footer text-text3  px-10 py-14 ">
+    <div className="bg-gradient-to-r from-green-500 via-green-300 to-yellow-400 text-white  ">
+      <footer className="footer   px-10 py-14 ">
         <aside>
           <img className="w-20 h-20 rounded-full" src={Logo} alt="logo" />
 
@@ -21,14 +21,14 @@ const Footer = () => {
           </p>
         </aside>
         <nav>
-          <h6 className="footer-title text-text">Services</h6>
+          <h6 className="footer-title">Services</h6>
           <a className="link link-hover">Branding</a>
           <a className="link link-hover">Design</a>
           <a className="link link-hover">Marketing</a>
           <a className="link link-hover">Advertisement</a>
         </nav>
         <nav>
-          <h6 className="footer-title text-text">Company</h6>
+          <h6 className="footer-title">Company</h6>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
@@ -68,11 +68,11 @@ const Footer = () => {
           </div>
         </nav>
       </footer>
-      <footer className="footer footer-center  text-text p-8">
+      <footer className="footer footer-center p-8">
         <aside>
           <p>
-            Copyright © {new Date().getFullYear()} - All right reserved by
-           Food For All LTD.
+            Copyright © {new Date().getFullYear()} - All right reserved by Food
+            For All LTD.
           </p>
         </aside>
       </footer>
