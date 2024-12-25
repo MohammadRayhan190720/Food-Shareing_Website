@@ -4,35 +4,31 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 const AvailableFoods = () => {
+  const foodData = useLoaderData();
+  console.log(foodData);
 
-    const foodData = useLoaderData();
-    console.log(foodData);
+  const [foods, setFoods] = useState(foodData);
+  const [search, setSearch] = useState("");
+  const [layout, setLayout] = useState(true);
 
-  const [foods,setFoods] = useState(foodData);
-  const [search,setSearch] = useState('');
-  const [layout,setLayout] = useState(true)
-
-  const handleSort = () =>{
-
-    axios.get("http://localhost:5000/food")
-    .then(res =>{
-      console.log(res.data)
-      setFoods(res.data)
-    })
-  }
+  const handleSort = () => {
+    axios.get("https://food-for-all-server-two.vercel.app/food").then((res) => {
+      console.log(res.data);
+      setFoods(res.data);
+    });
+  };
 
   //for sarch function
 
-  useEffect(() =>{
-     axios.get(`http://localhost:5000/foods?searchParams=${search}`)
-     .then(res =>{
-      setFoods(res.data)
-     })
-  },[search])
-
-
-
-
+  useEffect(() => {
+    axios
+      .get(
+        `https://food-for-all-server-two.vercel.app/foods?searchParams=${search}`
+      )
+      .then((res) => {
+        setFoods(res.data);
+      });
+  }, [search]);
 
   return (
     <div className="mt-10 lg:mt-16 max-w-7xl mx-auto px-5">

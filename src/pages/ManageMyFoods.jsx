@@ -16,17 +16,15 @@ const ManageMyFoods = () => {
 
   const { user } = useContext(AuthContext);
 
-
   //useAxiosSecure
 
   const axiosSecure = useAxiosSecure();
 
-  useEffect(() =>{
-    axiosSecure.get(`/food/${user?.email}`)
-    .then(res =>{
-            setMyAddedFood(Array.isArray(res.data) ? res.data : []);
-    })
-  },[])
+  useEffect(() => {
+    axiosSecure.get(`/food/${user?.email}`).then((res) => {
+      setMyAddedFood(Array.isArray(res.data) ? res.data : []);
+    });
+  }, []);
 
   // useEffect(() => {
   //   if (user?.email) {
@@ -36,7 +34,7 @@ const ManageMyFoods = () => {
 
   // const fetchAllFoods = async () => {
   //   const { data } = await axios.get(
-  //     `http://localhost:5000/food/${user?.email}`
+  //     `https://food-for-all-server-two.vercel.app/food/${user?.email}`
   //   );
   //   setMyAddedFood(data);
   // };
@@ -52,19 +50,20 @@ const ManageMyFoods = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:5000/foods/${_id}`)
-         .then((res) => {
-          if (res.data.deletedCount > 0) {
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your Food has been deleted.",
-              icon: "success",
-            });
-          }
+        axios
+          .delete(`https://food-for-all-server-two.vercel.app/foods/${_id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Food has been deleted.",
+                icon: "success",
+              });
+            }
 
-          const remaining = myAddedFood.find(food => food._id !== _id);
-          setMyAddedFood(remaining)
-        });
+            const remaining = myAddedFood.find((food) => food._id !== _id);
+            setMyAddedFood(remaining);
+          });
       }
     });
   };

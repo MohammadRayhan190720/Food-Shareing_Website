@@ -4,16 +4,16 @@ import axios from "axios";
 import InspiresStoryCard from "./InspiresStoryCard";
 
 const InspireStory = () => {
-  const [story,setStory] = useState([])
+  const [story, setStory] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/inspiredStory")
-    .then(res => {
-      setStory(res.data);
-      // console.log(res.data)
-    })
-  },[])
-
+    axios
+      .get("https://food-for-all-server-two.vercel.app/inspiredStory")
+      .then((res) => {
+        setStory(res.data);
+        // console.log(res.data)
+      });
+  }, []);
 
   return (
     <div className="mt-10 lg:mt-16 max-w-7xl mx-auto">

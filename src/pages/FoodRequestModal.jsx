@@ -6,33 +6,27 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-const FoodRequestModal = ({foodData}) => {
+const FoodRequestModal = ({ foodData }) => {
+  const navigate = useNavigate();
+  const {
+    additionalNotes,
+    donatorEmail,
+    donatorImage,
+    donatorName,
+    expiredDateTime,
+    foodImage,
+    foodName,
+    foodQuantity,
+    foodStatus,
+    pickupLocation,
+    _id,
+  } = foodData;
+  console.log(foodData);
 
-  const navigate = useNavigate()
-    const {
-      additionalNotes,
-      donatorEmail,
-      donatorImage,
-      donatorName,
-      expiredDateTime,
-      foodImage,
-      foodName,
-      foodQuantity,
-      foodStatus,
-      pickupLocation,
-      _id,
-    } = foodData;
-    console.log(foodData)
+  const { user } = useContext(AuthContext);
+  const email = user?.email;
 
-
-    const {user} = useContext(AuthContext)
-    const email = user?.email;
-
-
-    const expDate = moment(expiredDateTime).format("YYYY-MM-DD");
-
-
-
+  const expDate = moment(expiredDateTime).format("YYYY-MM-DD");
 
   const { register, handleSubmit } = useForm({
     defaultValues: {
@@ -51,19 +45,19 @@ const FoodRequestModal = ({foodData}) => {
   const onSubmit = (data) => {
     console.log(data);
     data.foodStatus = "requested";
-    
-    axios.put(`http://localhost:5000/foods/${_id}`,data)
-    .then(res => {
-      if (res.data.modifiedCount > 0) {
-        Swal.fire({
-          title: "Successfull",
-          text: "Food Request  successfully Submitted",
-          icon: "success",
-        });
-        navigate("/myFoodRequest");
-      }
-    })
 
+    axios
+      .put(`https://food-for-all-server-two.vercel.app/foods/${_id}`, data)
+      .then((res) => {
+        if (res.data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Successfull",
+            text: "Food Request  successfully Submitted",
+            icon: "success",
+          });
+          navigate("/myFoodRequest");
+        }
+      });
   };
 
   return (

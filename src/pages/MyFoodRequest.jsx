@@ -5,42 +5,35 @@ import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import moment from "moment";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
-
 const MyFoodRequest = () => {
   const [myFoodReq, setMyFoodReq] = useState([]);
 
-  console.log(myFoodReq)
+  console.log(myFoodReq);
 
-  const {user} = useContext(AuthContext);
-
-
+  const { user } = useContext(AuthContext);
 
   //axiossecure
 
   const axiosSecure = useAxiosSecure();
 
-  useEffect(() =>{
-    axiosSecure.get(`/userFood/${user?.email}`)
-    .then(res => {
-      setMyFoodReq(res.data)
-    })
-  },[])
-
-
+  useEffect(() => {
+    axiosSecure.get(`/userFood/${user?.email}`).then((res) => {
+      setMyFoodReq(res.data);
+    });
+  }, []);
 
   // useEffect(() => {
 
   //   if(user?.email){
-      
+
   //     fetchAllFoods()
   //   }
-
 
   // },[user?.email])
 
   // const fetchAllFoods = async () => {
   //   const { data } = await axios.get(
-  //     `http://localhost:5000/userFood/${user?.email}`
+  //     `https://food-for-all-server-two.vercel.app/userFood/${user?.email}`
   //   );
   //   setMyFoodReq(data);
   // };

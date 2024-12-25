@@ -28,7 +28,6 @@ const UpdateFood = () => {
   // Format expiration date for the input field
   const expDate = moment(expiredDateTime).format("YYYY-MM-DD");
 
-
   const {
     register,
     handleSubmit,
@@ -54,21 +53,20 @@ const UpdateFood = () => {
     data.foodQuantity = parseInt(data.foodQuantity); // Ensure quantity is a number
 
     console.log(data);
-    axios.put(`http://localhost:5000/food/${_id}`, data)
-     .then((res) => {
-      console.log(res.data)
-      if (res.data.modifiedCount > 0) {
-        Swal.fire({
-          title: "Successful",
-          text: "Food updated successfully",
-          icon: "success",
-        });
-        reset();
-      }
-    });
+    axios
+      .put(`https://food-for-all-server-two.vercel.app/food/${_id}`, data)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Successful",
+            text: "Food updated successfully",
+            icon: "success",
+          });
+          reset();
+        }
+      });
   };
-
-
 
   return (
     <div className="p-6 max-w-7xl mx-auto font-Roboto bg-white rounded shadow-lg">

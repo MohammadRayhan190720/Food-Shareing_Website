@@ -5,14 +5,11 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const AddFood = () => {
- 
-
-  const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
   const email = user?.email;
   const name = user?.displayName;
   const image = user?.photoURL;
   // console.log(name,image,email)
-
 
   const {
     register,
@@ -21,33 +18,30 @@ const AddFood = () => {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      donatorImage:image,
-      donatorName: name,  
-      donatorEmail:email,  
+      donatorImage: image,
+      donatorName: name,
+      donatorEmail: email,
     },
   });
-
 
   const onSubmit = (data) => {
     // Add "available" status by default
     data.foodStatus = "available";
-    const foodQuantityNumber = parseInt(data.foodQuantity)
+    const foodQuantityNumber = parseInt(data.foodQuantity);
     data.foodQuantity = foodQuantityNumber;
-    console.log(data)
-    axios.post("http://localhost:5000/add-foods",data)
-    .then(res =>{
-      if(res.data.insertedId){
-        Swal.fire({
-          title: "Successfull",
-          text: "Food added successfully",
-          icon: "success",
-        });
-        reset();
-      }
-      
-    })
-
-
+    console.log(data);
+    axios
+      .post("https://food-for-all-server-two.vercel.app/add-foods", data)
+      .then((res) => {
+        if (res.data.insertedId) {
+          Swal.fire({
+            title: "Successfull",
+            text: "Food added successfully",
+            icon: "success",
+          });
+          reset();
+        }
+      });
   };
 
   return (
@@ -200,7 +194,6 @@ const AddFood = () => {
                 readOnly
                 {...register("donatorEmail", {
                   required: "Email is required",
-
                 })}
                 className="w-full p-2 border rounded"
                 placeholder="Enter your email"

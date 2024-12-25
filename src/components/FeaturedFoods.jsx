@@ -4,12 +4,11 @@ import AvailableFoodCard from "./AvailableFoodCard";
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 
-
 const FeaturedFoods = () => {
   // const [foods, setFoods] = useState([]);
 
   // useEffect(() =>{
-  //   axios.get("http://localhost:5000/foods/highest")
+  //   axios.get("https://food-for-all-server-two.vercel.app/foods/highest")
   //   .then(res => {
   //     setFoods(res.data)
   //   })
@@ -25,7 +24,9 @@ const FeaturedFoods = () => {
   } = useQuery({
     queryKey: ["foods"],
     queryFn: async () => {
-      const res = await fetch("http://localhost:5000/foods/highest");
+      const res = await fetch(
+        "https://food-for-all-server-two.vercel.app/foods/highest"
+      );
       return res.json();
     },
   });
