@@ -2,19 +2,41 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import AvailableFoodCard from "./AvailableFoodCard";
 import { Link } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 
 const FeaturedFoods = () => {
+  // const [foods, setFoods] = useState([]);
 
-  const[foods,setFoods] = useState([])
+  // useEffect(() =>{
+  //   axios.get("http://localhost:5000/foods/highest")
+  //   .then(res => {
+  //     setFoods(res.data)
+  //   })
 
-  useEffect(() =>{
-    axios.get("http://localhost:5000/foods/highest")
-    .then(res => {
-      setFoods(res.data)
-    })
+  // },[])
 
-  },[])
+  // use Query
+
+  const {
+    isPending,
+    data: foods,
+    error,
+  } = useQuery({
+    queryKey: ["foods"],
+    queryFn: async () => {
+      const res = await fetch("http://localhost:5000/foods/highest");
+      return res.json();
+    },
+  });
+
+  if (isPending) {
+    return "Loading...";
+  }
+
+  if (error) {
+    return "An error has occurred: " + error.message;
+  }
 
   // console.log(foods)
 
