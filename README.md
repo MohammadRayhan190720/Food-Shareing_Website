@@ -9,9 +9,8 @@
 ---
 
 # Purpose of Food For All -
-```
-The purpose of the Food For All website is to create a platform that facilitates sharing surplus food to reduce waste and combat hunger. It allows users to add, view, update, and delete food items efficiently using CRUD operations. The platform also enables individuals or organizations to request available food and manage these requests seamlessly, fostering a community-driven approach to food distribution. By connecting food donors with those in need, the website promotes sustainability and ensures that no food goes to waste. This initiative is aimed at building a collaborative ecosystem where sharing food helps create a better, hunger-free tomorrow.
-```
+
+ ```The purpose of the Food For All website is to create a platform that facilitates sharing surplus food to reduce waste and combat hunger. It allows users to add, view, update, and delete food items efficiently using CRUD operations. The platform also enables individuals or organizations to request available food and manage these requests seamlessly, fostering a community-driven approach to food distribution. By connecting food donors with those in need, the website promotes sustainability and ensures that no food goes to waste. This initiative is aimed at building a collaborative ecosystem where sharing food helps create a better, hunger-free tomorrow.```
 
 ---
 
