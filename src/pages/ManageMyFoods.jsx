@@ -12,7 +12,7 @@ import useAxiosSecure from "../hooks/useAxiosSecure";
 const ManageMyFoods = () => {
   const [myAddedFood, setMyAddedFood] = useState([]);
 
-  console.log(myAddedFood);
+  // console.log(myAddedFood);
 
   const { user } = useContext(AuthContext);
 

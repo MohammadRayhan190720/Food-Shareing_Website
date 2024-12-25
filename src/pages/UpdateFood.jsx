@@ -52,11 +52,11 @@ const UpdateFood = () => {
     data.foodStatus = "available";
     data.foodQuantity = parseInt(data.foodQuantity); // Ensure quantity is a number
 
-    console.log(data);
+    // console.log(data);
     axios
       .put(`https://food-for-all-server-two.vercel.app/food/${_id}`, data)
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         if (res.data.modifiedCount > 0) {
           Swal.fire({
             title: "Successful",

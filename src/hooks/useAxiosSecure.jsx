@@ -21,11 +21,11 @@ const useAxiosSecure = () => {
         console.log("error caught in interceptor: ", error);
 
         if (error.status === 401 || error.status === 403) {
-          console.log("need to log out the user");
+          // console.log("need to log out the user");
 
           handleSignOut()
             .then(() => {
-              console.log("logout user");
+              // console.log("logout user");
               navigate("/signin");
             })
             .catch((error) => console.log(error));

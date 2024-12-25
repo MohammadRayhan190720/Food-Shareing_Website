@@ -21,7 +21,7 @@ const FoodRequestModal = ({ foodData }) => {
     pickupLocation,
     _id,
   } = foodData;
-  console.log(foodData);
+  // console.log(foodData);
 
   const { user } = useContext(AuthContext);
   const email = user?.email;
@@ -43,7 +43,7 @@ const FoodRequestModal = ({ foodData }) => {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     data.foodStatus = "requested";
 
     axios

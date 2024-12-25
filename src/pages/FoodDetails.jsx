@@ -13,7 +13,7 @@ import FoodRequestModal from "./FoodRequestModal";
 const FoodDetails = () => {
 
   const foodData = useLoaderData()
-  console.log(foodData)
+  // console.log(foodData)
 
   const {
     additionalNotes,

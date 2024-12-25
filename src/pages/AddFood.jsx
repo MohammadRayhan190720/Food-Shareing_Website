@@ -29,7 +29,7 @@ const AddFood = () => {
     data.foodStatus = "available";
     const foodQuantityNumber = parseInt(data.foodQuantity);
     data.foodQuantity = foodQuantityNumber;
-    console.log(data);
+    // console.log(data);
     axios
       .post("https://food-for-all-server-two.vercel.app/add-foods", data)
       .then((res) => {

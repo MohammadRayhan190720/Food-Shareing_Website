@@ -5,7 +5,7 @@ import axios from "axios";
 
 const AvailableFoods = () => {
   const foodData = useLoaderData();
-  console.log(foodData);
+  // console.log(foodData);
 
   const [foods, setFoods] = useState(foodData);
   const [search, setSearch] = useState("");
@@ -13,7 +13,7 @@ const AvailableFoods = () => {
 
   const handleSort = () => {
     axios.get("https://food-for-all-server-two.vercel.app/food").then((res) => {
-      console.log(res.data);
+      // console.log(res.data);
       setFoods(res.data);
     });
   };
