@@ -3,6 +3,7 @@ import { AuthContext } from "../provider/AuthProvider";
 import axios from "axios";
 import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import moment from "moment";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 
 const MyFoodRequest = () => {
@@ -14,22 +15,35 @@ const MyFoodRequest = () => {
 
 
 
-  useEffect(() => {
+  //axiossecure
 
-    if(user?.email){
+  const axiosSecure = useAxiosSecure();
+
+  useEffect(() =>{
+    axiosSecure.get(`/userFood/${user?.email}`)
+    .then(res => {
+      setMyFoodReq(res.data)
+    })
+  },[])
+
+
+
+  // useEffect(() => {
+
+  //   if(user?.email){
       
-      fetchAllFoods()
-    }
+  //     fetchAllFoods()
+  //   }
 
 
-  },[user?.email])
+  // },[user?.email])
 
-  const fetchAllFoods = async () => {
-    const { data } = await axios.get(
-      `http://localhost:5000/userFood/${user?.email}`
-    );
-    setMyFoodReq(data);
-  };
+  // const fetchAllFoods = async () => {
+  //   const { data } = await axios.get(
+  //     `http://localhost:5000/userFood/${user?.email}`
+  //   );
+  //   setMyFoodReq(data);
+  // };
   return (
     <div className="overflow-x-auto max-w-md md:max-w-xl lg:max-w-5xl mx-auto mt-5 lg:mt-8">
       <table className="table">

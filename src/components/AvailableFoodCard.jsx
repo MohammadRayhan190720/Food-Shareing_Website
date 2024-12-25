@@ -14,14 +14,14 @@ const AvailableFoodCard = ({food}) => {
         />
       </figure>
       <div className="card-body ">
-        <h2 className="card-title">{foodName}</h2>
-        <div className="text-left">
-          <p>{additionalNotes}</p>
+        <h2 className="card-title font-Popins text-2xl">{foodName}</h2>
+        <div className="text-left space-y-2">
+          <p className="font-medium">{additionalNotes}</p>
           <p>EXP:{moment(expiredDateTime).format("L")}</p>
         </div>
 
         <div className="card-actions justify-start">
-          <Link to={`/foodDetails/${_id}`} className="btn bg-secondary1 text-white">View Details</Link>
+          <Link to={`/foodDetails/${_id}`} className="btn bg-secondary1 text-white rounded-xl">View Details</Link>
         </div>
       </div>
     </div>

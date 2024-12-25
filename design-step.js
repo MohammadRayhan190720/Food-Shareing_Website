@@ -12,6 +12,11 @@
 //    - **Yellow (#F4D35E):**  
 //      - Evokes warmth and positivity.  
 //      - Use for highlights, hover effects on buttons, or as an accent in illustrations and banners.  
+#FF5733
+#FFA726
+
+#26A69A
+
 
 // 2. **Secondary Colors:**  
 //    - **Coral (#EE6C4D):**  

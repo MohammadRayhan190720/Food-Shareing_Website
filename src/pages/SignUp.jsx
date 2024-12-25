@@ -3,7 +3,6 @@ import { FaArrowLeftLong } from "react-icons/fa6";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
 import Swal from "sweetalert2";
-import welcome from '../assets/images/welcome.jpg';
 
 const SignUp = () => {
   const { creatNewUser, signInWithGoogle, updateUserProfile, setUser } =

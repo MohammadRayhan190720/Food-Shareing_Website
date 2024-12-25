@@ -7,7 +7,7 @@ export default {
         primary1: "#6BCB77",
         primary2: "#F4D35E",
         secondary1: "#EE6C4D",
-        secondary2: "#A7C6DA",
+        secondary2: "#42A5F5",
         background1: "#FDFDFA",
         background2: "#F8F8F8",
         text1: "#333333",

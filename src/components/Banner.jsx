@@ -4,12 +4,12 @@ import { Navigation, Thumbs } from "swiper/modules";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "swiper/css";
-import slider1 from "../assets/images/slider/19992.jpg";
+import slider1 from "../assets/images/slider/slider-img.jpg";
 import slider2 from "../assets/images/slider/2148478182.jpg"
 import slider3 from "../assets/images/slider/2148478183.jpg";
 import slider4 from "../assets/images/slider/2148478197.jpg";
 import slider5 from "../assets/images/slider/2149060406.jpg";
-import slider6 from "../assets/images/slider/4649.jpg";
+import slider6 from "../assets/images/slider/slider-img2.jpg";
 import slider7 from "../assets/images/slider/2149141333.jpg";
 import slider8 from "../assets/images/slider/2148460176.jpg";
 
@@ -65,7 +65,7 @@ const Banner = () => {
           <img
             src={slider6}
             alt="Movie 3"
-            className="w-full h-96  rounded-lg"
+            className="w-full h-96   rounded-lg"
           />
         </SwiperSlide>
         <SwiperSlide>

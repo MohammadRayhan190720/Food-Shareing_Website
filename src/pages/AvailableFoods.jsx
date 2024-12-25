@@ -35,7 +35,7 @@ const AvailableFoods = () => {
 
 
   return (
-    <div className="mt-10 lg:mt-16 max-w-7xl mx-auto flex flex-col items-center justify-center">
+    <div className="mt-10 lg:mt-16 max-w-7xl mx-auto">
       <div className="text-center space-y-4 ">
         <h3 className="font-Popins text-3xl lg:text-4xl font-semibold">
           Available Food for Donation

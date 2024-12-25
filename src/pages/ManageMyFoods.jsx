@@ -7,6 +7,7 @@ import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageMyFoods = () => {
   const [myAddedFood, setMyAddedFood] = useState([]);
@@ -15,18 +16,30 @@ const ManageMyFoods = () => {
 
   const { user } = useContext(AuthContext);
 
-  useEffect(() => {
-    if (user?.email) {
-      fetchAllFoods();
-    }
-  }, [user?.email]);
 
-  const fetchAllFoods = async () => {
-    const { data } = await axios.get(
-      `http://localhost:5000/food/${user?.email}`
-    );
-    setMyAddedFood(data);
-  };
+  //useAxiosSecure
+
+  const axiosSecure = useAxiosSecure();
+
+  useEffect(() =>{
+    axiosSecure.get(`/food/${user?.email}`)
+    .then(res =>{
+            setMyAddedFood(Array.isArray(res.data) ? res.data : []);
+    })
+  },[])
+
+  // useEffect(() => {
+  //   if (user?.email) {
+  //     fetchAllFoods();
+  //   }
+  // }, [user?.email]);
+
+  // const fetchAllFoods = async () => {
+  //   const { data } = await axios.get(
+  //     `http://localhost:5000/food/${user?.email}`
+  //   );
+  //   setMyAddedFood(data);
+  // };
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -72,48 +85,49 @@ const ManageMyFoods = () => {
           </tr>
         </thead>
         <tbody>
-          {myAddedFood?.map((food, index) => (
-            <tr key={index}>
-              <th>{index + 1}</th>
-              <td>
-                <div className="flex items-center gap-3">
-                  <div className="avatar">
-                    <div className="mask mask-squircle h-12 w-12">
-                      <img src={food?.foodImage} alt={food.foodName} />
+          {myAddedFood &&
+            myAddedFood.map((food, index) => (
+              <tr key={index}>
+                <th>{index + 1}</th>
+                <td>
+                  <div className="flex items-center gap-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle h-12 w-12">
+                        <img src={food?.foodImage} alt={food.foodName} />
+                      </div>
                     </div>
-                  </div>
-                  <div>
-                    <div className="font-bold">{food?.foodName}</div>
-                    <div className="text-sm opacity-50 flex items-center gap-1">
-                      <MdOutlineProductionQuantityLimits />
+                    <div>
+                      <div className="font-bold">{food?.foodName}</div>
+                      <div className="text-sm opacity-50 flex items-center gap-1">
+                        <MdOutlineProductionQuantityLimits />
 
-                      {food?.foodQuantity}
+                        {food?.foodQuantity}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </td>
-              <td>{moment(food?.expiredDateTime).format("L")}</td>
-              <td title={food?.additionalNotes}>
-                {food?.additionalNotes.slice(0, 15)}
-              </td>
-              <th>
-                <Link
-                  to={`/updateFood/${food._id}`}
-                  className="btn bg-secondary2 btn-sm"
-                >
-                  <CiEdit />
-                </Link>
-                <button
-                  onClick={() => {
-                    handleDelete(food._id);
-                  }}
-                  className="btn bg-secondary1 btn-sm"
-                >
-                  <RiDeleteBin6Line />
-                </button>
-              </th>
-            </tr>
-          ))}
+                </td>
+                <td>{moment(food?.expiredDateTime).format("L")}</td>
+                <td title={food?.additionalNotes}>
+                  {food?.additionalNotes.slice(0, 15)}
+                </td>
+                <th>
+                  <Link
+                    to={`/updateFood/${food._id}`}
+                    className="btn bg-secondary2 btn-sm"
+                  >
+                    <CiEdit />
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleDelete(food._id);
+                    }}
+                    className="btn bg-secondary1 btn-sm"
+                  >
+                    <RiDeleteBin6Line />
+                  </button>
+                </th>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>

@@ -61,16 +61,16 @@ const FoodDonationMap = () => {
   const [mapCenter] = useState([40.7128, -74.006]); // Keep the map center stable
 
   return (
-    <div className="p-4 bg-base-100 rounded-lg shadow-lg">
-      <h2 className="text-3xl lg:text-4xl font-Popins  font-semibold text-center mb-4">
+    <div className="p-4 bg-base-100 rounded-lg shadow-lg max-w-7xl mx-auto">
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-Playfire  font-semibold text-center my-5">
         Interactive Food Donation Map
       </h2>
-      <p className="text-center w-4/5 mx-auto">
+      <p className="text-center w-4/5 mx-auto mb-5 ">
         Discover nearby donation spots and food-sharing events with an
         interactive map featuring detailed information on availability, hours,
         and contacts for a seamless food-sharing experience.
       </p>
-      <div className="h-96 rounded-lg overflow-hidden">
+      <div className="h-screen rounded-lg overflow-hidden">
         <MapContainer center={mapCenter} zoom={13} className="h-full w-full">
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
