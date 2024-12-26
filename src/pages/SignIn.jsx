@@ -1,5 +1,5 @@
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { useContext } from "react";
 import Swal from "sweetalert2";
@@ -9,6 +9,8 @@ import Lottie from "lottie-react";
 
 const SignIn = () => {
   const { singInUser, signInWithGoogle, setUser } = useContext(AuthContext);
+  const location = useLocation();
+  const form = location.state || "/";
 
   const navigate = useNavigate();
   const {
@@ -28,7 +30,7 @@ const SignIn = () => {
     singInUser(email, password)
       .then((result) => {
         setUser(result.user);
-        navigate("/");
+         navigate(form);
       })
       .catch((err) => {
         Swal.fire({
@@ -47,7 +49,7 @@ const SignIn = () => {
     signInWithGoogle()
       .then((result) => {
         setUser(result.user);
-        navigate("/");
+        navigate(form);
       })
       .catch((error) => {
         // console.log(error.message);

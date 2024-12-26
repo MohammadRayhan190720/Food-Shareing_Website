@@ -47,7 +47,7 @@ const FeaturedFoods = () => {
         <h2 className="font-Playfire text-3xl md:text-4xl lg:text-5xl font-semibold">
           Featured Foods
         </h2>
-        <p className="w-1/2 mx-auto">
+        <p className=" w-full p-5 md:p-0 md:w-1/2 mx-auto">
           Explore our carefully curated selection of featured foods, offering a
           variety of delicious and nutritious options ready for donation, making
           a difference in the lives of those in need.

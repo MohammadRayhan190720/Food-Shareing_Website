@@ -21,7 +21,7 @@ const InspireStory = () => {
         <h2 className="font-Playfire text-3xl md:text-4xl lg:text-5xl font-semibold">
           Inspiring Lives Together
         </h2>
-        <p className="w-1/2 mx-auto">
+        <p className="w-full p-5 md:p-0 md:w-1/2 mx-auto">
           Real stories from our community members who have experienced the power
           of sharing. Together, we create a world where no one goes hungry and
           kindness knows no bounds.

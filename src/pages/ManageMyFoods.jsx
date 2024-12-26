@@ -5,12 +5,13 @@ import { MdOutlineProductionQuantityLimits } from "react-icons/md";
 import moment from "moment";
 import { CiEdit } from "react-icons/ci";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const ManageMyFoods = () => {
   const [myAddedFood, setMyAddedFood] = useState([]);
+  const navigate = useNavigate();
 
   // console.log(myAddedFood);
 
@@ -21,10 +22,11 @@ const ManageMyFoods = () => {
   const axiosSecure = useAxiosSecure();
 
   useEffect(() => {
-    axiosSecure.get(`/food/${user?.email}`).then((res) => {
+    axiosSecure.get(`/food/${user?.email}`)
+    .then((res) => {
       setMyAddedFood(Array.isArray(res.data) ? res.data : []);
     });
-  }, []);
+  }, [user?.email,axiosSecure]);
 
   // useEffect(() => {
   //   if (user?.email) {
@@ -59,10 +61,11 @@ const ManageMyFoods = () => {
                 text: "Your Food has been deleted.",
                 icon: "success",
               });
+                // console.log("Before Delete:", myAddedFood);
             }
-
-            const remaining = myAddedFood.find((food) => food._id !== _id);
+            const remaining = myAddedFood.filter((food) => food._id !== _id);
             setMyAddedFood(remaining);
+            //  console.log("After Delete:", remaining);
           });
       }
     });
@@ -84,7 +87,7 @@ const ManageMyFoods = () => {
           </tr>
         </thead>
         <tbody>
-          {myAddedFood &&
+          {Array.isArray(myAddedFood) &&
             myAddedFood.map((food, index) => (
               <tr key={index}>
                 <th>{index + 1}</th>
