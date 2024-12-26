@@ -33,10 +33,10 @@ const AvailableFoods = () => {
   return (
     <div className="mt-10 lg:mt-16 max-w-7xl mx-auto px-5">
       <div className="text-center space-y-4 ">
-        <h3 className="font-Playfire text-3xl md:text-4xl lg:text-5xl font-semibold">
+        <h3 className="font-Playfire text-2xl md:text-4xl lg:text-5xl font-semibold">
           Available Food for Donation
         </h3>
-        <p className="text-center space-y-4 w-1/2 mx-auto">
+        <p className="text-center space-y-3 md:space-y-4 w-full p-5 md:w-1/2 mx-auto md:p-0">
           Discover a variety of food items available for donation. Help those in
           need by selecting food that is ready for pickup and contribute to
           making a difference.

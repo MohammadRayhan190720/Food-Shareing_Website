@@ -17,7 +17,7 @@ const InspireStory = () => {
 
   return (
     <div className="mt-10 lg:mt-16 max-w-7xl mx-auto">
-      <div className="text-center space-y-4 ">
+      <div className="text-center space-y-2 md:space-y-4 ">
         <h2 className="font-Playfire text-3xl md:text-4xl lg:text-5xl font-semibold">
           Inspiring Lives Together
         </h2>

@@ -65,7 +65,7 @@ const FoodDonationMap = () => {
       <h2 className="text-3xl md:text-4xl lg:text-5xl font-Playfire  font-semibold text-center my-5">
         Interactive Food Donation Map
       </h2>
-      <p className="text-center w-4/5 mx-auto mb-5 ">
+      <p className="text-center w-full md:w-1/2 mx-auto p-5 md:p-0 ">
         Discover nearby donation spots and food-sharing events with an
         interactive map featuring detailed information on availability, hours,
         and contacts for a seamless food-sharing experience.
