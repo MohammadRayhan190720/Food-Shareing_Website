@@ -18,68 +18,68 @@ const Banner = () => {
   const [thumbsSwiper, setThumbsSwiper] = React.useState(null);
 
   return (
-    <div className="max-w-7xl mx-auto mt-6">
+    <div className="w-full">
       {/* Main slider */}
       <Swiper
         modules={[Navigation, Thumbs]}
         navigation
         thumbs={{ swiper: thumbsSwiper }}
-        className="gallery-top rounded-lg shadow-lg"
+        className="gallery-top"
       >
         <SwiperSlide>
           <img
             src={slider1}
             alt="Movie 1"
-            className="w-full h-96  rounded-lg"
+            className="w-full h-96 object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider2}
             alt="Movie 2"
-            className="w-full h-96 rounded-lg"
+            className="w-full h-96 object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider3}
             alt="Movie 3"
-            className="w-full  h-96 rounded-lg"
+            className="w-full  h-96 object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider4}
             alt="Movie 3"
-            className="w-full h-96 rounded-lg"
+            className="w-full h-96 object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider5}
             alt="Movie 3"
-            className="w-full h-96  rounded-lg"
+            className="w-full h-96 object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider6}
             alt="Movie 3"
-            className="w-full h-96   rounded-lg"
+            className="w-full h-96 object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider7}
             alt="Movie 3"
-            className="w-full h-96  rounded-lg"
+            className="w-full h-96 object-cover"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider8}
             alt="Movie 8"
-            className="w-full h-96  rounded-lg"
+            className="w-full h-96 object-cover"
           />
         </SwiperSlide>
       </Swiper>
@@ -87,7 +87,7 @@ const Banner = () => {
       {/* Thumbnail slider */}
       <Swiper
         onSwiper={setThumbsSwiper}
-        slidesPerView={8}
+        slidesPerView={10}
         spaceBetween={10}
         className="gallery-thumbs mt-4"
       >
@@ -95,56 +95,56 @@ const Banner = () => {
           <img
             src={slider1}
             alt="Thumbnail 1"
-            className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+            className="w-20 h-20 object-cover rounded-lg border border-gray-200"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider2}
             alt="Thumbnail 2"
-            className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+            className="w-20 h-20 object-cover rounded-lg border border-gray-200"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider3}
             alt="Thumbnail 3"
-            className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+            className="w-20 h-20 object-cover rounded-lg border border-gray-200"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider4}
             alt="Thumbnail 3"
-            className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+            className="w-20 h-20 object-cover rounded-lg border border-gray-200"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider5}
             alt="Thumbnail 3"
-            className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+            className="w-20 h-20 object-cover rounded-lg border border-gray-200"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider6}
             alt="Thumbnail 3"
-            className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+            className="w-20 h-20 object-cover rounded-lg border border-gray-200"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider7}
             alt="Thumbnail 3"
-            className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+            className="w-20 h-20 object-cover rounded-lg border border-gray-200"
           />
         </SwiperSlide>
         <SwiperSlide>
           <img
             src={slider8}
             alt="Thumbnail 3"
-            className="w-24 h-24 object-cover rounded-lg border border-gray-200"
+            className="w-20 h-20 object-cover rounded-lg border border-gray-200"
           />
         </SwiperSlide>
       </Swiper>

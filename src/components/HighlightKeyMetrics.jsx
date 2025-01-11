@@ -4,8 +4,7 @@ import Team1 from '../assets/images/share1.jpg'
 import Team2 from '../assets/images/share-2.jpg'
 import Team3 from '../assets/images/help-1jpg.jpg'
 import Team4 from '../assets/images/help-2.jpg'
-import Team5 from '../assets/images/help-3s.jpeg'
-import Team6 from '../assets/images/help-4.jpg'
+
 
 const HighlightKeyMetrics = () => {
   const [livesChanged, setLivesChanged] = useState(0);

@@ -10,6 +10,8 @@ import SignUp from "../pages/SignUp";
 import PrivateRoute from "./PrivateRoute";
 import FoodDetails from "../pages/FoodDetails";
 import UpdateFood from "../pages/UpdateFood";
+import AboutUs from "../pages/AboutUs";
+import HighlightKeyMetrics from "../components/HighlightKeyMetrics";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +26,16 @@ const router = createBrowserRouter([
         path: "/avaiableFoods",
         element: <AvailableFoods></AvailableFoods>,
         loader: () => fetch("https://food-for-all-server-two.vercel.app/foods"),
+      },
+      {
+        path:'/aboutus',
+        element: <AboutUs></AboutUs>
+
+      },
+      {
+        path:'/impact',
+        element: <HighlightKeyMetrics></HighlightKeyMetrics>
+
       },
       {
         path: "/addFood",

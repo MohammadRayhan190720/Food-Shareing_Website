@@ -9,47 +9,67 @@ const Navbar = () => {
   const { user, handleSignOut } = useContext(AuthContext);
   // console.log(user)
 
-  const email = user?.email;
+  // const email = user?.email;
   // console.log(email)
 
   const links = (
     <>
-      <NavLink className="mr-5 py-3 flex items-center group relative " to="/">
+      <NavLink className="mr-4 py-3 flex items-center group relative " to="/">
         Home
         <span className="absolute left-0 bottom-0 w-0 h-1 bg-primary2 transition-all duration-300 group-hover:w-full"></span>
       </NavLink>
       <NavLink
-        className="mr-5 py-3 flex items-center group relative"
+        className="mr-4 py-3 flex items-center group relative"
         to="/avaiableFoods"
       >
         Available Foods
         <span className="absolute left-0 bottom-0 w-0 h-1 bg-primary2 transition-all duration-300 group-hover:w-full"></span>
       </NavLink>
       <NavLink
-        className="mr-5 py-3 flex items-center group relative"
+        className="mr-4 py-3 flex items-center group relative"
         to="/addFood"
       >
         Add Food
         <span className="absolute left-0 bottom-0 w-0 h-1 bg-primary2 transition-all duration-300 group-hover:w-full"></span>
       </NavLink>
-      <NavLink
-        className="mr-5 py-3 flex items-center group relative"
-        to="/manageMyFoods"
-      >
-        Manage My Foods
-        <span className="absolute left-0 bottom-0 w-0 h-1 bg-primary2 transition-all duration-300 group-hover:w-full"></span>
-      </NavLink>
-      <NavLink
-        className="mr-5 py-3 flex items-center group relative"
-        to="/myFoodRequest"
-      >
-        My Food Request
-        <span className="absolute left-0 bottom-0 w-0 h-1 bg-primary2 transition-all duration-300 group-hover:w-full"></span>
-      </NavLink>
+      {user && (
+        <NavLink
+          className="mr-4 py-3 flex items-center group relative"
+          to="/manageMyFoods"
+        >
+          Manage My Foods
+          <span className="absolute left-0 bottom-0 w-0 h-1 bg-primary2 transition-all duration-300 group-hover:w-full"></span>
+        </NavLink>
+      )}
+      {user && (
+        <NavLink
+          className="mr-4 py-3 flex items-center group relative"
+          to="/myFoodRequest"
+        >
+          My Food Request
+          <span className="absolute left-0 bottom-0 w-0 h-1 bg-primary2 transition-all duration-300 group-hover:w-full"></span>
+        </NavLink>
+        
+      )}
+        <NavLink
+          className="mr-4 py-3 flex items-center group relative"
+          to="/aboutus"
+        >
+          About Us
+          <span className="absolute left-0 bottom-0 w-0 h-1 bg-primary2 transition-all duration-300 group-hover:w-full"></span>
+        </NavLink>
+        <NavLink
+          className="mr-4 py-3 flex items-center group relative"
+          to="/impact"
+        >
+          Our Impact
+          <span className="absolute left-0 bottom-0 w-0 h-1 bg-primary2 transition-all duration-300 group-hover:w-full"></span>
+        </NavLink>
+        
     </>
   );
   return (
-    <div className="navbar bg-primary1 px-10 text-background1">
+    <div className="navbar bg-primary1 px-10 text-background1 sticky top-0 z-50 shadow-xl">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
